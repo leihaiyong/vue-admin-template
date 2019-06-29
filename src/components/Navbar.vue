@@ -6,21 +6,24 @@
         </span>
         <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-                <span style="display:block;" @click="logout">Logout</span>
+                <span style="display:block;" @click="onLogout">Logout</span>
             </el-dropdown-item>
         </el-dropdown-menu>
     </el-dropdown>
 </template>
 
 <script>
-import {logout} from '@/api/user'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'navbar',
   methods: {
-    logout() {
+    ...mapActions([
+          'logout'
+      ]),
+    onLogout() {
         console.log('logout')
-        logout()
+        this.logout()
         this.$router.push('/login')
     }
   }

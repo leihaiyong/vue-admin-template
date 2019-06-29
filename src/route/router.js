@@ -76,6 +76,7 @@ router.beforeEach((to, from, next) => {
   if (user || to.path === "/login") {
     next()
   } else {
+    // not yet login
     next('/login')
   }
 })

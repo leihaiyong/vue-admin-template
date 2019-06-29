@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import {login} from '@/api/user'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'login',
   data() {
@@ -31,13 +32,17 @@ export default {
     }
   },
   methods: {
-    onLogin() {
-      let user = login(this.form.name, this.form.pwd)
-      if (!user) {
+    ...mapActions([
+      'login'
+    ]),
+    async onLogin() {
+      try {
+        await this.login(this.form.name, this.form.pwd)
+        this.$router.push('/')
+      } catch(err) {
         this.form.error = 'User not existed or bad password.'
-        return
+        console.log(err)
       }
-      this.$router.push('/')
     }
   }
 }

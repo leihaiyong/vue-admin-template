@@ -1,5 +1,5 @@
 
-export function login(name, pwd) {
+export async function login(name, pwd) {
     let user = {
         user: name,
         token: pwd,
