@@ -15,42 +15,49 @@ const router = new Router({
     },
     {
       path: '/',
-      meta: { main_menu: true },
+      name: 'main',
+      meta: { main: true, label: 'Home' },
       redirect: '/app',
       component: Layout,
       children: [
         {
           path: 'app',
-          meta: { menu_label: 'App' },
+          name: 'app',
+          meta: { label: 'App' },
           redirect: '/app/page1',
           component: Panel,
           children: [
             {
               path: 'page1',
-              meta: { menu_label: 'App 1' },
+              name: 'app.page1',
+              meta: { label: 'App 1' },
               component: PlaceholdPage
             },
             {
               path: 'page2',
-              meta: { menu_label: 'App 2' },
+              name: 'app.page2',
+              meta: { label: 'App 2' },
               component: PlaceholdPage
             }
           ]
         },
         {
           path: 'misc',
-          meta: { menu_label: 'Misc' },
+          name: 'misc',
+          meta: { label: 'Misc' },
           redirect: '/misc/page1',
           component: Panel,
           children: [
             {
               path: 'page1',
-              meta: { menu_label: 'Misc 1' },
+              name: 'misc.page1',
+              meta: { label: 'Misc 1' },
               component: PlaceholdPage
             },
             {
               path: 'page2',
-              meta: { menu_label: 'Misc 2' },
+              name: 'misc.page2',
+              meta: { label: 'Misc 2' },
               component: PlaceholdPage
             }
           ]
