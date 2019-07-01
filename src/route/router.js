@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/components/Layout'
 import Panel from '@/components/Panel'
+import NotFound from '@/views/NotFound'
 import Login from '@/views/Login'
 import PlaceholdPage from '@/views/PlaceholdPage'
 
@@ -63,6 +64,10 @@ const router = new Router({
           ]
         }
       ]
+    },
+    {
+      path: '*',
+      component: NotFound
     }
   ]
 })
