@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-        <navbar />
+      <navbar />
     </el-header>
     <el-container>
       <el-aside width="200px">

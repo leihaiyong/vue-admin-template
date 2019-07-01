@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/components/Layout'
-import Panel from '@/components/Panel'
 import NotFound from '@/views/NotFound'
 import Login from '@/views/Login'
+import RoutePage from '@/views/RoutePage'
 import PlaceholdPage from '@/views/PlaceholdPage'
 
 Vue.use(Router)
@@ -26,7 +26,7 @@ const router = new Router({
           name: 'app',
           meta: { label: 'App' },
           redirect: '/app/page1',
-          component: Panel,
+          component: RoutePage,
           children: [
             {
               path: 'page1',
@@ -47,7 +47,7 @@ const router = new Router({
           name: 'misc',
           meta: { label: 'Misc' },
           redirect: '/misc/page1',
-          component: Panel,
+          component: RoutePage,
           children: [
             {
               path: 'page1',

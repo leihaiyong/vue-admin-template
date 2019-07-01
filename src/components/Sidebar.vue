@@ -1,5 +1,5 @@
 <template>
-    <nav-menu :menus="menus"/>
+  <nav-menu :menus="menus"/>
 </template>
 
 <script>
