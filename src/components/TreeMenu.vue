@@ -1,16 +1,16 @@
 <template>
     <el-menu :router=true :default-active="$route.path">
-        <nav-menu-item v-for="menu in menus" :key="menu.index" :menu="menu" />
+        <tree-menu-item v-for="menu in menus" :key="menu.index" :menu="menu" />
     </el-menu>
 </template>
 
 <script>
-import NavMenuItem from './NavMenuItem'
+import TreeMenuItem from './TreeMenuItem'
 
 export default {
-  name: 'nav-menu',
+  name: 'tree-menu',
   components: {
-      NavMenuItem
+      TreeMenuItem
   },
   props: ['menus']
 }
