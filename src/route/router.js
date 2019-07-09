@@ -73,23 +73,19 @@ const router = new Router({
 })
 
 import store from '@/store/store'
-import {getCachedUser} from '@/api/user'
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   console.log(`route: "${from.path}" -> "${to.path}"`)
-  let user = store.state.user
-  if (user == null) {
-    user = getCachedUser()
-    if (user) {
-      // restore
-      store.commit('SET_USER', user)
-    }
-  }
-  if (user || to.path === "/login") {
+  if (to.path === "/login") {
     next()
   } else {
-    // not yet login
-    next('/login')
+    let user = await store.dispatch('getLoginUser')
+    if (user) {
+      next()
+    } else {
+      // not yet login
+      next('/login')
+    }
   }
 })
 
