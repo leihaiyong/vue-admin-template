@@ -14,8 +14,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async login({commit}, id, pwd) {
-      let user = await login(id, pwd)
+    async login({commit}, {username, password}) {
+      let user = await login(username, password)
       commit('SET_USER', user)
       return user
     },

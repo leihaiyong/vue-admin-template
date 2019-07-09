@@ -37,10 +37,12 @@ export default {
     ]),
     async onLogin() {
       try {
-        await this.login(this.form.name, this.form.pwd)
+        await this.login({username: this.form.name,
+          password: this.form.pwd})
         this.$router.push('/')
       } catch(err) {
         this.form.error = 'User not existed or bad password.'
+        this.form.pwd = ''
         console.log(err)
       }
     }
